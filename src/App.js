@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import ApartmentList from './components/ApartmentList';
+import AddApartment from './components/AddApartment';
+import ApartmentDetails from './components/ApartmentDetails';
+import {Link,Routes,Route,NavLink} from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hobey ho mate!</h1>
+      <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/add-apartment'>Add Apartment</Link>
+      </nav>
+      <Routes>
+        <Route path='/' element={<ApartmentList />}/>
+        <Route path='/add-apartment' element={<AddApartment />}/>
+        <Route path='/apartment-details/:apartmentId' element={<ApartmentDetails />}/>
+      </Routes> 
     </div>
   );
 }
